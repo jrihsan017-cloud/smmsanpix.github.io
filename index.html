@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FB Pro Booster</title>
+<style>
+:root{--bg:#f4f6fb;--cd:#fff;--tx:#18202f;--mu:#667085;--bd:#e3e7ef;--pr:#1877f2;--ok:#12805c}
+@media(prefers-color-scheme:dark){:root{--bg:#10141c;--cd:#1a2030;--tx:#e8ecf5;--mu:#98a2b8;--bd:#2a3247;--pr:#4a95ff;--ok:#3ecf9a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:720px;margin:0 auto;padding:14px}
+h1{font-size:20px;margin:4px 0 12px}
+nav{display:flex;gap:6px;margin-bottom:12px}
+nav button{flex:1}
+button{font:inherit;color:var(--tx);background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:9px 12px;cursor:pointer}
+button.on,button.p{background:var(--pr);border-color:var(--pr);color:#fff}
+.c{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:16px}
+label{display:block;font-size:13px;color:var(--mu);margin:10px 0 3px}
+input,select{width:100%;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx)}
+.m{font-size:13px;color:var(--mu);margin-top:4px}
+.t{display:flex;justify-content:space-between;font-size:18px;font-weight:600;margin:14px 0 10px}
+.t span+span{color:var(--ok)}
+.full{width:100%;padding:12px;font-weight:600}
+.s{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--bd);white-space:nowrap}
+.h{display:none}
+#msg{margin-top:10px;font-size:14px}
+</style>
+</head>
+<body>
+<div class="w">
+  <h1 id="site"></h1>
+  <nav>
+    <button class="on" data-t="order">Pesan</button>
+    <button data-t="hist">Riwayat</button>
+    <button data-t="svc">Layanan</button>
+  </nav>
+
+  <section id="order" class="c">
+    <label for="sid">Layanan</label>
+    <select id="sid"></select>
+    <div class="m" id="inf"></div>
+    <label for="link">Link profil Facebook Pro</label>
+    <input id="link" placeholder="https://facebook.com/username" autocomplete="off">
+    <label for="qty">Jumlah</label>
+    <input id="qty" type="number" inputmode="numeric" value="500">
+    <div class="m" id="rng"></div>
+    <div class="t"><span>Total</span><span id="tot"></span></div>
+    <button class="p full" id="go">Pesan sekarang</button>
+    <div id="msg"></div>
+  </section>
+
+  <section id="hist" class="c h">
+    <div class="s"><table>
+      <thead><tr><th>ID</th><th>Waktu</th><th>Layanan</th><th>Jumlah</th><th>Status</th><th></th></tr></thead>
+      <tbody id="hb"></tbody>
+    </table></div>
+    <div class="m" id="he">Belum ada pesanan.</div>
+  </section>
+
+  <section id="svc" class="c h">
+    <div class="s"><table>
+      <thead><tr><th>Layanan</th><th>Harga/1000</th><th>Min</th><th>Max</th><th>Info</th></tr></thead>
+      <tbody id="sb"></tbody>
+    </table></div>
+  </section>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
